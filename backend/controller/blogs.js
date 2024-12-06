@@ -40,7 +40,7 @@ exports.createBlog = async (req, res) => {
             return res.status(400).send("Missing one of the required fields: title, imagelink, or content");
         }
 
-        const blog = { title, imagelink, content, date: Date.now() };
+        const blog = { title, imagelink, content, draft: false, date: Date.now() };
         const newBlog = await blogModel.create(blog);
 
         res.status(200).json(newBlog);
@@ -98,3 +98,21 @@ exports.deleteBlog = async (req, res) => {
         console.log(err);
     }
 }
+
+exports.draftBlog = async (req, res) => {
+    try {
+        const { title, imagelink, content } = req.body;
+        if (!title || !imagelink || !content) {
+            return res.status(400).send("Missing one of the required fields: title, imagelink, or content");
+        }
+
+        const blog = { title, imagelink, content, draft: true, date: Date.now() };
+        const newBlog = await blogModel.create(blog);
+
+        res.status(200).json(newBlog);
+    } catch (err) {
+        res.status(500).send("Internal Server Error");
+        console.log(err);
+    }
+}
+
