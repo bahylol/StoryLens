@@ -22,4 +22,10 @@ const blogSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("blogModel", blogSchema);
+// // Define the models
+const blogModel = mongoose.model("blog", blogSchema);
+
+// // Export the models
+module.exports = {
+  blogModel,
+}
