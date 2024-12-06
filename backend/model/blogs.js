@@ -19,6 +19,10 @@ const blogSchema = new Schema(
       type: Date,
       default: Date.now,
     },
+    draft: {
+      type: Boolean,
+      required: true,
+    },
   },
   {
     versionKey: false 
