@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 
 exports.getAllBlogs = async (req, res) => {
     try {
-        const blogs = await blogModel.find();
+        const blogs = await blogModel.find().sort({ order: 1 });
         res.status(200).json(blogs);
     } catch (err) {
         res.status(500).send("Internal Server Error");
-        console.log(err);
+        console.error(err);
     }
 };
 
@@ -116,3 +116,25 @@ exports.draftBlog = async (req, res) => {
     }
 }
 
+exports.reorderBlogs = async (req, res) => {
+    try {
+        const { reorderedBlogs } = req.body;
+
+        if (!reorderedBlogs || !Array.isArray(reorderedBlogs)) {
+            return res.status(400).send("Invalid input: 'reorderedBlogs' must be an array.");
+        }
+
+        for (let index = 0; index < reorderedBlogs.length; index++) {
+            const blog = reorderedBlogs[index];
+            await blogModel.updateOne(
+                { _id: blog._id },
+                { $set: { order: index + 1 } }
+            );
+        }
+
+        res.status(200).send("Blogs reordered successfully.");
+    } catch (err) {
+        res.status(500).send("Internal Server Error");
+        console.error(err);
+    }
+};
