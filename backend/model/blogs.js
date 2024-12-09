@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-
+// add description
 const blogSchema = new Schema(
   {
     title: {
@@ -23,16 +23,20 @@ const blogSchema = new Schema(
       type: Boolean,
       required: true,
     },
+    order: {
+      type: Number,
+      required: true,
+    }
   },
   {
-    versionKey: false 
+    versionKey: false
   }
 );
 
-// // Define the models
+// Define the models
 const blogModel = mongoose.model("blog", blogSchema);
 
-// // Export the models
+// Export the models
 module.exports = {
   blogModel,
 }
