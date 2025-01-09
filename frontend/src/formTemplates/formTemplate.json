@@ -1,99 +1,70 @@
 [
     {
-        "label": "First Name",
-        "name": "firstName",
+        "label": "Title",
+        "name": "title",
         "type": "text",
-        "placeholder": "Enter your first name",
+        "placeholder": "Enter the blog title",
         "validation": [
             {
                 "type": "string"
             },
             {
                 "required": true,
-                "message": "First Name is required"
+                "message": "Title is required"
             },
             {
-                "min": 2,
-                "message": "First Name must be at least 2 characters"
+                "min": 5,
+                "message": "Title must be at least 5 characters"
+            },
+            {
+                "max": 30,
+                "message": "Title must be at most 30 characters"
             }
         ]
     },
     {
-        "label": "Last Name",
-        "name": "lastName",
-        "type": "text",
-        "placeholder": "Enter your last name",
-        "validation": [
-            {
-                "type": "string"
-            },
-            {
-                "required": true,
-                "message": "Last Name is required"
-            },
-            {
-                "min": 2,
-                "message": "Last Name must be at least 2 characters"
-            }
-        ]
-    },
-    {
-        "label": "Profile Picture",
-        "name": "profilePicture",
+        "label": "Banner",
+        "name": "image",
         "type": "file",
-        "placeholder": "Please Upload Profile Picture"
-    },
-    {
-        "label": "Email",
-        "name": "email",
-        "type": "email",
-        "placeholder": "Enter your email",
+        "placeholder": "Upload an image for the blog",
         "validation": [
             {
-                "type": "email",
-                "message": "Must be a valid email"
-            },
-            {
                 "required": true,
-                "message": "Email is required"
+                "message": "Image is required"
             }
         ]
     },
     {
-        "label": "Phone",
-        "name": "phone",
-        "type": "tel",
-        "placeholder": "Enter your phone number",
+        "label": "Content",
+        "name": "content",
+        "type": "advanced",
+        "placeholder": "Enter the blog content",
         "validation": [
             {
                 "type": "string"
             },
             {
                 "required": true,
-                "message": "Phone is required"
+                "message": "Content is required"
             },
             {
-                "matches": "^[0-9]+$",
-                "message": "Phone number must contain only digits"
-            },
-            {
-                "min": 10,
-                "message": "Phone number must be at least 10 digits"
+                "min": 50,
+                "message": "Content must be at least 50 characters"
             }
         ]
     },
     {
-        "label": "Gender",
-        "name": "gender",
+        "label": "Draft",
+        "name": "draft",
         "type": "radio",
         "options": [
             {
-                "label": "Male",
-                "value": "male"
+                "label": "Yes",
+                "value": true
             },
             {
-                "label": "Female",
-                "value": "female"
+                "label": "No",
+                "value": false
             }
         ],
         "validation": [
@@ -102,59 +73,7 @@
             },
             {
                 "required": true,
-                "message": "Gender is required"
-            }
-        ]
-    },
-    {
-        "label": "Country",
-        "name": "country",
-        "type": "select",
-        "options": [
-            "Please Select",
-            "USA",
-            "Canada",
-            "Germany"
-        ],
-        "validation": [
-            {
-                "type": "select"
-            },
-            {
-                "required": true,
-                "message": "Please select a country"
-            }
-        ]
-    },
-    {
-        "label": "Hobbies",
-        "name": "hobbies",
-        "type": "checkbox",
-        "options": [
-            {
-                "label": "Reading",
-                "value": "reading"
-            },
-            {
-                "label": "Gaming",
-                "value": "gaming"
-            },
-            {
-                "label": "Traveling",
-                "value": "traveling"
-            },
-            {
-                "label": "Cooking",
-                "value": "cooking"
-            }
-        ],
-        "validation": [
-            {
-                "type": "checkbox"
-            },
-            {
-                "required": true,
-                "message": "Please select at least one hobby"
+                "message": "Please select if this is a draft"
             }
         ]
     }

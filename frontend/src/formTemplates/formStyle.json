@@ -1,44 +1,44 @@
 {
     "container": {
-        "background": "#2c2c2c",
+        "background": "#f9f9f9",
         "padding": "20px",
-        "borderRadius": "10px",
-        "boxShadow": "0 4px 8px rgba(0, 0, 0, 0.3)"
+        "borderRadius": "8px",
+        "boxShadow": "0 4px 8px rgba(0, 0, 0, 0.1)"
     },
-    "formName": "User Registration Form",
+    "formName": "New Post",
     "formNameStyle": {
-        "color": "#eaeaea",
-        "background": "#444444",
-        "padding": "10px",
-        "borderRadius": "5px",
+        "color": "#333333",
+        "background": "#cccccc",
+        "padding": "12px",
+        "borderRadius": "6px",
         "fontSize": "1.5rem",
         "textAlign": "center",
-        "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.2)"
+        "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.1)"
     },
-    "submitButtonLabel": "Register",
+    "submitButtonLabel": "Post",
     "inputBox": {
         "width": "100%",
         "padding": "10px",
         "borderRadius": "5px",
-        "border": "1px solid #555555",
+        "border": "1px solid #999999",
         "marginBottom": "10px",
         "boxSizing": "border-box",
-        "color": "#eaeaea",
-        "background": "#333333"
+        "color": "#333333",
+        "background": "#ffffff"
     },
     "inputBoxLabel": {
-        "color": "#eaeaea",
-        "fontSize": "1.2rem",
+        "color": "#333333",
+        "fontSize": "1.1rem",
         "marginBottom": "5px",
         "display": "block"
     },
     "defaultInput": {
-        "background": "#444444",
-        "border": "1px solid #555555",
+        "background": "#ffffff",
+        "border": "1px solid #999999",
         "borderRadius": "5px",
-        "padding": "8px",
+        "padding": "10px",
         "fontSize": "1rem",
-        "color": "#eaeaea"
+        "color": "#333333"
     },
     "errorMessage": {
         "color": "#e74c3c",
@@ -46,37 +46,37 @@
         "marginTop": "5px"
     },
     "dropDownMenu": {
-        "color": "#eaeaea",
-        "background": "#333333",
-        "border": "1px solid #555555",
+        "color": "#333333",
+        "background": "#ffffff",
+        "border": "1px solid #999999",
         "borderRadius": "5px",
         "padding": "8px",
         "fontSize": "1rem"
     },
     "radioButton": {
-        "color": "#3498db",
-        "marginRight": "10px"
+        "color": "#60a5fa",
+        "marginRight": "8px"
     },
     "checkbox": {
-        "color": "#3498db",
-        "marginRight": "10px"
+        "color": "#60a5fa",
+        "marginRight": "8px"
     },
     "fileInput": {
-        "background": "#444444",
-        "border": "1px solid #555555",
+        "background": "#ffffff",
+        "border": "1px solid #999999",
         "borderRadius": "5px",
         "padding": "8px",
         "fontSize": "1rem",
-        "color": "#eaeaea"
+        "color": "#333333"
     },
     "submitButton": {
-        "color": "#fff",
-        "background": "#3498db",
+        "color": "#ffffff",
+        "background": "#60a5fa",
         "padding": "10px 20px",
         "border": "none",
         "borderRadius": "5px",
         "fontSize": "1.2rem",
         "cursor": "pointer",
-        "boxShadow": "0 4px 6px rgba(0, 0, 0, 0.3)"
+        "boxShadow": "0 4px 6px rgba(0, 0, 0, 0.1)"
     }
 }
