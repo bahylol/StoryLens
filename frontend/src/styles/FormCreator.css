@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #266DD3;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    min-width: 500px;
+}
+
+.container header {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.input-box {
+    width: 100%;
+}
+
+.input-box label {
+    color: black;
+    font-size: 1.1rem;
+}
+
+.input-box input,
+.input-box select {
+    background-color: #fff;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    margin-top: 8px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.form button {
+    height: 55px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #344055;
+    border-radius: 25px;
+}
+
+.form button:hover {
+    background: black;
+}
+
+h1 {
+    text-align: center;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.radio-option:last-child,
+.checkbox-option:last-child {
+    margin-right: 0;
+}
+
+.radio-option input,
+.checkbox-option input {
+    margin-right: 5px;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.radio-option label,
+.checkbox-option label {
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.custom-file-upload {
+    height: 50px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 8px;
+    padding: 0 15px;
+    margin-top: 8px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form .jodit-editor-wrapper button {
+    all: unset;
+}
+
+.error-message {
+    color: #b22222;
+    margin-left: 7px;
+    display: inline;
+    font-size: 0.85rem;
+}
+
+.jodit-status-bar .jodit-status-bar__item.jodit-status-bar__item-right {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .container {
+        min-width: auto;
+    }
+
+    .form .column {
+        flex-wrap: wrap;
+    }
+}

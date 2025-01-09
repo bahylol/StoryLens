@@ -1,0 +1,82 @@
+{
+    "container": {
+        "background": "#2c2c2c",
+        "padding": "20px",
+        "borderRadius": "10px",
+        "boxShadow": "0 4px 8px rgba(0, 0, 0, 0.3)"
+    },
+    "formName": "User Registration Form",
+    "formNameStyle": {
+        "color": "#eaeaea",
+        "background": "#444444",
+        "padding": "10px",
+        "borderRadius": "5px",
+        "fontSize": "1.5rem",
+        "textAlign": "center",
+        "boxShadow": "0 2px 4px rgba(0, 0, 0, 0.2)"
+    },
+    "submitButtonLabel": "Register",
+    "inputBox": {
+        "width": "100%",
+        "padding": "10px",
+        "borderRadius": "5px",
+        "border": "1px solid #555555",
+        "marginBottom": "10px",
+        "boxSizing": "border-box",
+        "color": "#eaeaea",
+        "background": "#333333"
+    },
+    "inputBoxLabel": {
+        "color": "#eaeaea",
+        "fontSize": "1.2rem",
+        "marginBottom": "5px",
+        "display": "block"
+    },
+    "defaultInput": {
+        "background": "#444444",
+        "border": "1px solid #555555",
+        "borderRadius": "5px",
+        "padding": "8px",
+        "fontSize": "1rem",
+        "color": "#eaeaea"
+    },
+    "errorMessage": {
+        "color": "#e74c3c",
+        "fontSize": "0.9rem",
+        "marginTop": "5px"
+    },
+    "dropDownMenu": {
+        "color": "#eaeaea",
+        "background": "#333333",
+        "border": "1px solid #555555",
+        "borderRadius": "5px",
+        "padding": "8px",
+        "fontSize": "1rem"
+    },
+    "radioButton": {
+        "color": "#3498db",
+        "marginRight": "10px"
+    },
+    "checkbox": {
+        "color": "#3498db",
+        "marginRight": "10px"
+    },
+    "fileInput": {
+        "background": "#444444",
+        "border": "1px solid #555555",
+        "borderRadius": "5px",
+        "padding": "8px",
+        "fontSize": "1rem",
+        "color": "#eaeaea"
+    },
+    "submitButton": {
+        "color": "#fff",
+        "background": "#3498db",
+        "padding": "10px 20px",
+        "border": "none",
+        "borderRadius": "5px",
+        "fontSize": "1.2rem",
+        "cursor": "pointer",
+        "boxShadow": "0 4px 6px rgba(0, 0, 0, 0.3)"
+    }
+}

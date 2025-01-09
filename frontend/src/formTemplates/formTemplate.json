@@ -1,0 +1,161 @@
+[
+    {
+        "label": "First Name",
+        "name": "firstName",
+        "type": "text",
+        "placeholder": "Enter your first name",
+        "validation": [
+            {
+                "type": "string"
+            },
+            {
+                "required": true,
+                "message": "First Name is required"
+            },
+            {
+                "min": 2,
+                "message": "First Name must be at least 2 characters"
+            }
+        ]
+    },
+    {
+        "label": "Last Name",
+        "name": "lastName",
+        "type": "text",
+        "placeholder": "Enter your last name",
+        "validation": [
+            {
+                "type": "string"
+            },
+            {
+                "required": true,
+                "message": "Last Name is required"
+            },
+            {
+                "min": 2,
+                "message": "Last Name must be at least 2 characters"
+            }
+        ]
+    },
+    {
+        "label": "Profile Picture",
+        "name": "profilePicture",
+        "type": "file",
+        "placeholder": "Please Upload Profile Picture"
+    },
+    {
+        "label": "Email",
+        "name": "email",
+        "type": "email",
+        "placeholder": "Enter your email",
+        "validation": [
+            {
+                "type": "email",
+                "message": "Must be a valid email"
+            },
+            {
+                "required": true,
+                "message": "Email is required"
+            }
+        ]
+    },
+    {
+        "label": "Phone",
+        "name": "phone",
+        "type": "tel",
+        "placeholder": "Enter your phone number",
+        "validation": [
+            {
+                "type": "string"
+            },
+            {
+                "required": true,
+                "message": "Phone is required"
+            },
+            {
+                "matches": "^[0-9]+$",
+                "message": "Phone number must contain only digits"
+            },
+            {
+                "min": 10,
+                "message": "Phone number must be at least 10 digits"
+            }
+        ]
+    },
+    {
+        "label": "Gender",
+        "name": "gender",
+        "type": "radio",
+        "options": [
+            {
+                "label": "Male",
+                "value": "male"
+            },
+            {
+                "label": "Female",
+                "value": "female"
+            }
+        ],
+        "validation": [
+            {
+                "type": "radio"
+            },
+            {
+                "required": true,
+                "message": "Gender is required"
+            }
+        ]
+    },
+    {
+        "label": "Country",
+        "name": "country",
+        "type": "select",
+        "options": [
+            "Please Select",
+            "USA",
+            "Canada",
+            "Germany"
+        ],
+        "validation": [
+            {
+                "type": "select"
+            },
+            {
+                "required": true,
+                "message": "Please select a country"
+            }
+        ]
+    },
+    {
+        "label": "Hobbies",
+        "name": "hobbies",
+        "type": "checkbox",
+        "options": [
+            {
+                "label": "Reading",
+                "value": "reading"
+            },
+            {
+                "label": "Gaming",
+                "value": "gaming"
+            },
+            {
+                "label": "Traveling",
+                "value": "traveling"
+            },
+            {
+                "label": "Cooking",
+                "value": "cooking"
+            }
+        ],
+        "validation": [
+            {
+                "type": "checkbox"
+            },
+            {
+                "required": true,
+                "message": "Please select at least one hobby"
+            }
+        ]
+    }
+]
