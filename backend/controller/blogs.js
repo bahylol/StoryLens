@@ -3,7 +3,17 @@ const mongoose = require("mongoose");
 
 exports.getAllBlogs = async (req, res) => {
     try {
-        const blogs = await blogModel.find().sort({ order: 1 });
+        const blogs = await blogModel.find({ draft: false }).sort({ order: 1 });
+        res.status(200).json(blogs);
+    } catch (err) {
+        res.status(500).send("Internal Server Error");
+        console.error(err);
+    }
+};
+
+exports.getAllDrafts = async (req, res) => {
+    try {
+        const blogs = await blogModel.find({ draft: true }).sort({ order: 1 });
         res.status(200).json(blogs);
     } catch (err) {
         res.status(500).send("Internal Server Error");
