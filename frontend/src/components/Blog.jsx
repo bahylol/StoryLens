@@ -7,14 +7,14 @@ const Blog = ({ posts }) => {
         <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
           <div className="group relative">
             <h3 className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a href={"/blog/"+post.id}>
+              <a href={"/blog/" + post._id}>
                 <span className="absolute inset-0" />
                 {post.title}
               </a>
               <div className="flex items-center justify-between text-xs mt-4">
-                <time dateTime={post.datetime} className="text-gray-500">
-                  {post.datetime}
-                </time>
+                <span className="text-gray-500">
+                  {new Date(post.date).toLocaleDateString()}
+                </span>
                 {/* {post.tags && post.tags.length > 0 && (
                   <div className="flex flex-wrap gap-x-2">
                     {post.tags.map((tag, index) => (
@@ -29,12 +29,12 @@ const Blog = ({ posts }) => {
                 )} */}
               </div>
             </h3>
-            <p className="mt-2 line-clamp-3 text-sm/6 text-gray-600">{post.description}</p>
+            <p className="mt-2 line-clamp-3 text-sm/6 text-gray-600">{post.content}</p>
           </div>
           <div className="mt-4 w-full">
             <img
               alt=""
-              src={post.imageUrl}
+              src={post.imagelink}
               className="w-full h-64 object-cover rounded-lg shadow-lg"
             />
           </div>
