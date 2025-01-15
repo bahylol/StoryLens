@@ -29,7 +29,7 @@ const Blog = ({ posts }) => {
                 )} */}
               </div>
             </h3>
-            <p className="mt-2 line-clamp-3 text-sm/6 text-gray-600">{post.content}</p>
+            <p className="mt-2 line-clamp-3 text-sm/6 text-gray-600">{post.summary}</p>
           </div>
           <div className="mt-4 w-full">
             <img
