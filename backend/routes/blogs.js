@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllBlogs, getAllDrafts, getBlog, createBlog, deleteBlog, updateBlog, draftBlog, reorderBlogs
+const { getAllBlogs, getAllDrafts, getBlog, createBlog, deleteBlog, updateBlog, draftBlog, changeDraftStatus, reorderBlogs
 } = require("../controller/blogs.js");
 
 router.get("/getAllBlogs", getAllBlogs);
@@ -11,6 +11,7 @@ router.post("/createBlog", createBlog);
 router.put("/updateBlog", updateBlog);
 router.delete("/deleteBlog", deleteBlog);
 router.post("/draftBlog", draftBlog);
+router.put("/changeDraftStatus", changeDraftStatus);
 router.put("/reorderBlogs", reorderBlogs);
 
 
