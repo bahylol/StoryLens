@@ -109,32 +109,6 @@ exports.deleteBlog = async (req, res) => {
     }
 }
 
-exports.changeDraftStatus = async (req, res) => {
-    try {
-        const { _id, draft } = req.body;
-
-        if (!mongoose.Types.ObjectId.isValid(_id)) {
-            return res.status(400).send("Invalid ID format");
-        }
-
-        const updatedBlog = await blogModel.updateOne(
-            { _id },
-            { $set: { draft } }
-        );
-
-        if (updatedBlog.modifiedCount === 0) {
-            return res.status(404).send("Blog not found or no changes made");
-        }
-
-        const blog = await blogModel.findById(_id);
-
-        res.status(200).json(blog);
-    } catch (err) {
-        res.status(500).send("Internal Server Error");
-        console.log(err);
-    }
-}
-
 exports.reorderBlogs = async (req, res) => {
     try {
         const { reorderedBlogs } = req.body;
