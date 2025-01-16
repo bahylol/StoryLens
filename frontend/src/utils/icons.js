@@ -13,3 +13,27 @@ export const UploadIcon = () => (
     </svg>
 );
 
+export const EditIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28" width="24" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5l4 4-11 11H5.5V14.5z" />
+    </svg>
+)
+
+export const DeleteIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28" width="24" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 6h18" />
+        <path d="M8 6V4h8v2" />
+        <rect x="5" y="6" width="14" height="14" rx="2" />
+        <path d="M10 11v6" />
+        <path d="M14 11v6" />
+    </svg>
+)
+
+export const DraftIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28" width="24" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 3v18h18V6.828l-4.828-4.828H3z" />
+        <path d="M8 5h8v4H8z" />
+        <path d="M6 11h12v8H6z" />
+    </svg>
+)
