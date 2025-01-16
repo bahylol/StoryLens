@@ -20,7 +20,7 @@ const blogSchema = new Schema(
       required: true,
     },
     category: {
-      type: String,
+      type: [String],
       required: true,
     },
     date: {
