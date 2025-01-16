@@ -1,4 +1,4 @@
-export const UploadIcon = () => (
+export const UploadIcon = ({ color = "#000" }) => (
     <svg
         width="24"
         height="24"
@@ -8,7 +8,7 @@ export const UploadIcon = () => (
     >
         <path
             d="M19.35 10.04C18.67 6.59 15.64 4 12 4C9.11 4 6.6 5.64 5.35 8.04C2.34 8.36 0 10.91 0 14C0 17.31 2.69 20 6 20H19C21.21 20 23 18.21 23 16C23 13.89 21.43 12.14 19.35 12.04V12C19.35 11.4 19.35 10.85 19.35 10.04ZM12 13V17H10V13H7.65L12 8.35L16.35 13H14V17H12Z"
-            fill="#000"
+            fill={color}
         />
     </svg>
 );
