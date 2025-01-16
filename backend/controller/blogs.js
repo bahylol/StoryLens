@@ -62,17 +62,15 @@ exports.createBlog = async (req, res) => {
 
 exports.updateBlog = async (req, res) => {
     try {
-        const { _id, title, imagelink, content } = req.body;
-        if (!_id || !title || !imagelink || !content) {
-            return res.status(400).send("Missing one of the required fields: id, title, imagelink, or content");
-        }
+        const { _id, title, imagelink, summary, content, category, draft } = req.body;
+
         if (!mongoose.Types.ObjectId.isValid(_id)) {
             return res.status(400).send("Invalid ID format");
         }
 
         const updatedBlog = await blogModel.updateOne(
             { _id },
-            { $set: { title, imagelink, content, date: Date.now() } }
+            { $set: { title, imagelink, summary, content, category, draft, date: Date.now() } }
         );
 
         if (updatedBlog.modifiedCount === 0) {
