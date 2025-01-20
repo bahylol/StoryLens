@@ -1,3 +1,4 @@
+const cloudinary = require('cloudinary').v2;
 const { blogModel } = require("../model/blogs");
 const mongoose = require("mongoose");
 
@@ -46,11 +47,11 @@ exports.getBlog = async (req, res) => {
 exports.createBlog = async (req, res) => {
     try {
         const { title, imagelink, summary, content, category, draft } = req.body;
-        if (!title || !imagelink || !content) {
+        if (!title || !content) {
             return res.status(400).send("Missing one of the required fields: title, imagelink, or content");
         }
 
-        const blog = { title, imagelink, content, draft: false, date: Date.now() };
+        const blog = { title, imagelink, summary, content, category, draft, date: Date.now() };
         const newBlog = await blogModel.create(blog);
 
         res.status(200).json(newBlog);
@@ -127,5 +128,32 @@ exports.reorderBlogs = async (req, res) => {
     } catch (err) {
         res.status(500).send("Internal Server Error");
         console.error(err);
+    }
+};
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+});
+
+exports.uploadImage = async (req, res) => {
+    try {
+        const imageBase64 = req.body.image;
+
+        if (!imageBase64) {
+            return res.status(400).json({ error: 'No Base64 image data provided' });
+        }
+
+        // Upload the Base64 image to Cloudinary
+        const uploadResponse = await cloudinary.uploader.upload(imageBase64, {
+            resource_type: 'auto', // Detects image/video automatically
+        });
+
+        // Send the URL of the uploaded image in the response
+        res.status(200).json({ imageUrl: uploadResponse.secure_url });
+    } catch (error) {
+        console.error('Image upload failed:', error);
+        res.status(500).json({ error: 'Image upload failed' });
     }
 };
