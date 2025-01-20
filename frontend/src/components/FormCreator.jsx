@@ -6,18 +6,40 @@ import '../styles/FormCreator.css';
 import { mapValidationRule } from '../utils/yupMapper';
 import { UploadIcon } from '../utils/icons';
 import JoditEditor from 'jodit-react';
+import axios from 'axios';
 
-const FormCreator = ({ formTemplate, formStyle, imageURL, onSubmit }) => {
+const FormCreator = ({ formTemplate, formStyle, initialData, imageURL, onSubmit }) => {
 
     if (!formStyle) {
         formStyle = {};
     }
 
-    const handleFileUpload = (event) => {
+    const handleFileUpload = async (event, onChange) => {
         const file = event.target.files[0];
         if (file) {
             const label = event.target.nextElementSibling;
             label.innerHTML = `File Uploaded Successfully: ${file.name}`;
+
+            // Convert the file to Base64
+            const reader = new FileReader();
+            reader.onloadend = async () => {
+                const base64Image = reader.result;
+
+                // Now send the Base64 image to your API
+                try {
+                    const response = await axios.post(`${process.env.REACT_APP_BACKEND}/uploadImage`, {
+                        image: base64Image,
+                    });
+
+                    onChange(response.data.imageUrl); // Update the image URL within form data
+                } catch (error) {
+                    console.error('Image upload failed:', error);
+                    label.innerHTML = 'Image upload failed. Please try again.';
+                }
+            };
+
+            // Read the file as Base64
+            reader.readAsDataURL(file);
         }
     };
 
@@ -34,6 +56,7 @@ const FormCreator = ({ formTemplate, formStyle, imageURL, onSubmit }) => {
     // useForm hook from react-hook-form
     const { handleSubmit, control, formState: { errors } } = useForm({
         resolver: yupResolver(validationSchema),
+        defaultValues: initialData,
     });
 
     const onSubmitForm = (data) => {
@@ -42,7 +65,7 @@ const FormCreator = ({ formTemplate, formStyle, imageURL, onSubmit }) => {
 
     const joditConfig = {
         uploader: {
-            insertImageAsBase64URI: false,
+            insertImageAsBase64URI: true,
             url: imageURL,
             format: 'json'
         },
@@ -82,7 +105,7 @@ const FormCreator = ({ formTemplate, formStyle, imageURL, onSubmit }) => {
                                         <input
                                             type="file"
                                             id={field.name}
-                                            onChange={handleFileUpload}
+                                            onChange={(event) => handleFileUpload(event, controllerField.onChange)}
                                             style={{ display: 'none' }}
                                         />
                                         <label
@@ -92,6 +115,15 @@ const FormCreator = ({ formTemplate, formStyle, imageURL, onSubmit }) => {
                                         >
                                             <UploadIcon /> {field.placeholder}
                                         </label>
+                                        {/* Display the uploaded image URL as a hyperlink */}
+                                        {controllerField.value && (
+                                            <div>
+                                                <p>Uploaded Image:</p>
+                                                <a href={controllerField.value} target="_blank" rel="noopener noreferrer">
+                                                    Click here to view the uploaded image
+                                                </a>
+                                            </div>
+                                        )}
                                     </div>
                                 ) :
 
@@ -151,14 +183,15 @@ const FormCreator = ({ formTemplate, formStyle, imageURL, onSubmit }) => {
                                                 </div>
 
                                             ) :
-
-                                                // Advance editor
+                                                // Advanced Editor
                                                 field.type === 'advanced' ? (
                                                     <div className="jodit-editor-wrapper" style={{ marginTop: '8px' }}>
                                                         <JoditEditor
-                                                            value={field.placeholder || ''}
+                                                            type={field.type}
+                                                            value={initialData?.[field.name] || field.placeholder || controllerField.value || ''}
                                                             config={joditConfig}
-                                                            onBlur={controllerField.onChange}
+                                                            onBlur={(newValue) => controllerField.onChange(newValue)}
+                                                            onChange={(newValue) => controllerField.onChange(newValue)}
                                                         />
                                                     </div>
                                                 ) : (
