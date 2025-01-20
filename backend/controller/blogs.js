@@ -51,7 +51,12 @@ exports.createBlog = async (req, res) => {
             return res.status(400).send("Missing one of the required fields: title, imagelink, or content");
         }
 
-        const blog = { title, imagelink, summary, content, category, draft, date: Date.now() };
+        const blogCount = await blogModel.countDocuments();
+
+        const blog = {
+            title, imagelink, summary, content, category, draft, date: Date.now(), order: blogCount + 1
+        };
+
         const newBlog = await blogModel.create(blog);
 
         res.status(200).json(newBlog);
