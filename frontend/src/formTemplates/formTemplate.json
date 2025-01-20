@@ -23,11 +23,89 @@
         ]
     },
     {
+        "label": "Summary",
+        "name": "summary",
+        "type": "text",
+        "placeholder": "Enter the blog summary",
+        "validation": [
+            {
+                "type": "string"
+            },
+            {
+                "required": true,
+                "message": "Content is required"
+            },
+            {
+                "min": 20,
+                "message": "Content must be at least 20 characters"
+            },
+            {
+                "max": 50,
+                "message": "Content must be at most 50 characters"
+            }
+        ]
+    },
+    {
+        "label": "Category",
+        "name": "category",
+        "type": "checkbox",
+        "options": [
+            {
+                "label": "Blockchain",
+                "value": "Blockchain"
+            },
+            {
+                "label": "Ethics",
+                "value": "Ethics"
+            },
+            {
+                "label": "Networks",
+                "value": "Networks"
+            },
+            {
+                "label": "IOT",
+                "value": "IOT"
+            },
+            {
+                "label": "Cybersecurity",
+                "value": "Cybersecurity"
+            },
+            {
+                "label": "Gaming",
+                "value": "Gaming"
+            },
+            {
+                "label": "AI/ML",
+                "value": "AI/ML"
+            },
+            {
+                "label": "Privacy",
+                "value": "Privacy"
+            },
+            {
+                "label": "Other",
+                "value": "Other"
+            }
+        ],
+        "validation": [
+            {
+                "type": "checkbox"
+            },
+            {
+                "required": true,
+                "message": "Please select at least one category"
+            }
+        ]
+    },
+    {
         "label": "Banner",
-        "name": "image",
+        "name": "imagelink",
         "type": "file",
         "placeholder": "Upload an image for the blog",
         "validation": [
+            {
+                "type": "string"
+            },
             {
                 "required": true,
                 "message": "Image is required"
