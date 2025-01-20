@@ -72,8 +72,12 @@ function BlogDetails() {
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="relative z-10 flex items-end justify-between h-full px-6 pb-4">
-            <h1 className="text-4xl font-semibold text-black">{blog.title}</h1>
-            <p className="text-gray-600 text-lg">{new Date(blog.date).toLocaleDateString()}</p>
+            <h1 className="text-4xl font-semibold text-black bg-gray-200 bg-opacity-50 rounded-full p-4 shadow-md text-center">
+              {blog.title}
+            </h1>
+            <p className="text-white text-lg bg-black bg-opacity-25 rounded-full p-2">
+              {new Date(blog.date).toLocaleDateString()}
+            </p>
           </div>
         </section>
 
