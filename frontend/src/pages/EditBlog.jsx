@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
 import FormCreator from '../components/FormCreator';
-import formStyle from '../formTemplates/formStyle.json';
+import formStyleEdit from '../formTemplates/formStyleEdit.json';
 import formTemplate from '../formTemplates/formTemplate.json';
 
 function EditBlog() {
@@ -54,7 +54,7 @@ function EditBlog() {
         <div className="m-8">
           <FormCreator
             formTemplate={formTemplate}
-            formStyle={formStyle}
+            formStyle={formStyleEdit}
             initialData={blog}
             onSubmit={editBlog}
           />

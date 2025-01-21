@@ -1,0 +1,82 @@
+{
+    "container": {
+        "background": "#f8f8f8",
+        "padding": "24px",
+        "borderRadius": "10px",
+        "boxShadow": "0 6px 12px rgba(0, 0, 0, 0.12)"
+    },
+    "formName": "Edit Post",
+    "formNameStyle": {
+        "color": "#2c2c2c",
+        "background": "#d1d1d1",
+        "padding": "14px",
+        "borderRadius": "8px",
+        "fontSize": "1.6rem",
+        "textAlign": "center",
+        "boxShadow": "0 3px 6px rgba(0, 0, 0, 0.12)"
+    },
+    "submitButtonLabel": "Post",
+    "inputBox": {
+        "width": "100%",
+        "padding": "12px",
+        "borderRadius": "6px",
+        "border": "1px solid #cccccc",
+        "marginBottom": "12px",
+        "boxSizing": "border-box",
+        "color": "#333333",
+        "background": "#ffffff"
+    },
+    "inputBoxLabel": {
+        "color": "#333333",
+        "fontSize": "1.2rem",
+        "marginBottom": "6px",
+        "display": "block"
+    },
+    "defaultInput": {
+        "background": "#ffffff",
+        "border": "1px solid #cccccc",
+        "borderRadius": "6px",
+        "padding": "12px",
+        "fontSize": "1.1rem",
+        "color": "#333333"
+    },
+    "errorMessage": {
+        "color": "#e74c3c",
+        "fontSize": "1rem",
+        "marginTop": "6px"
+    },
+    "dropDownMenu": {
+        "color": "#333333",
+        "background": "#ffffff",
+        "border": "1px solid #cccccc",
+        "borderRadius": "6px",
+        "padding": "10px",
+        "fontSize": "1.1rem"
+    },
+    "radioButton": {
+        "color": "#60a5fa",
+        "marginRight": "10px"
+    },
+    "checkbox": {
+        "color": "#60a5fa",
+        "marginRight": "10px"
+    },
+    "fileInput": {
+        "background": "#ffffff",
+        "border": "1px solid #cccccc",
+        "borderRadius": "6px",
+        "padding": "10px",
+        "fontSize": "1.1rem",
+        "color": "#333333"
+    },
+    "submitButton": {
+        "color": "#ffffff",
+        "background": "#4c8bf5",
+        "padding": "12px 24px",
+        "border": "none",
+        "borderRadius": "6px",
+        "fontSize": "1.3rem",
+        "cursor": "pointer",
+        "boxShadow": "0 6px 8px rgba(0, 0, 0, 0.12)"
+    }
+}
