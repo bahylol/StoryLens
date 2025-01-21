@@ -16,9 +16,13 @@ const Drafts = () => {
   }, []);
 
   return (
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <Blog posts={posts} />
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto mt-0 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 border-t-0 pt-10 sm:mt-0 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        {posts.map((post) => (
+          <Blog key={post.id} post={post} />
+        ))}
       </div>
+    </div>
   );
 };
 
