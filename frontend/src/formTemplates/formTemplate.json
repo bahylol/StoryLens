@@ -17,7 +17,7 @@
                 "message": "Title must be at least 5 characters"
             },
             {
-                "max": 30,
+                "max": 50,
                 "message": "Title must be at most 30 characters"
             }
         ]
@@ -40,7 +40,7 @@
                 "message": "Content must be at least 20 characters"
             },
             {
-                "max": 50,
+                "max": 100,
                 "message": "Content must be at most 50 characters"
             }
         ]
