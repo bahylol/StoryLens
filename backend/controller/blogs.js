@@ -4,17 +4,17 @@ const mongoose = require("mongoose");
 
 exports.getAllBlogs = async (req, res) => {
     try {
-        const blogs = await blogModel.find({ draft: false }).sort({ order: 1 });
-        res.status(200).json(blogs);
-    } catch (err) {
-        res.status(500).send("Internal Server Error");
-        console.error(err);
-    }
-};
+        const { draft, category } = req.query;
 
-exports.getAllDrafts = async (req, res) => {
-    try {
-        const blogs = await blogModel.find({ draft: true }).sort({ order: 1 });
+        // Construct the filter object
+        const filter = { draft };
+
+        // Add category filter if provided
+        if (category) {
+            filter.category = { $in: [category] };
+        }
+
+        const blogs = await blogModel.find(filter).sort({ order: 1 });
         res.status(200).json(blogs);
     } catch (err) {
         res.status(500).send("Internal Server Error");
