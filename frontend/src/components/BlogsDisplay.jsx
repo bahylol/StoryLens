@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Blog from "../components/Blog.jsx";
+import { Toaster, toast } from 'react-hot-toast';
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, } from "@dnd-kit/core";
 import { arrayMove, SortableContext, rectSortingStrategy, useSortable, } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -55,43 +56,46 @@ const BlogsDisplay = ({ draft, categories }) => {
         .put(`${process.env.REACT_APP_BACKEND}/reorderBlogs`, {
           reorderedBlogs: newOrder.map((post, idx) => ({ _id: post._id, order: idx + 1 })),
         })
-        .then(() => console.log("Order updated"))
-        .catch(console.error);
+        .then(toast.success('Blogs order Updated Successfully'))
+        .catch(console.log("Error Updating blogs order"));
     }
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-6 lg:px-8">
-      {/* Category selector */}
-      <div className="relative mt-4 bg-white rounded-full shadow-lg flex justify-between items-center px-6 py-3 w-full mx-auto shadow-md shadow-gray-400/50">
-        <span className="text-lg font-semibold text-gray-700">Category:</span>
-        <div className="flex flex-wrap space-x-4 gap-y-2">
-          {categories.map((cat, i) => (
-            <button
-              key={i}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-3 rounded-full shadow-md transition ${selectedCategory === cat
+    <>
+      <div><Toaster /></div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Category selector */}
+        <div className="relative mt-4 bg-white rounded-full shadow-lg flex justify-between items-center px-6 py-3 w-full mx-auto shadow-md shadow-gray-400/50">
+          <span className="text-lg font-semibold text-gray-700">Category:</span>
+          <div className="flex flex-wrap space-x-4 gap-y-2">
+            {categories.map((cat, i) => (
+              <button
+                key={i}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-6 py-3 rounded-full shadow-md transition ${selectedCategory === cat
                   ? "bg-blue-500 text-white hover:bg-blue-600"
                   : "bg-gray-200 text-black hover:bg-gray-300"
-                }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* DnD Kit Context */}
-      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        <SortableContext items={posts.map((p) => p._id)} strategy={rectSortingStrategy}>
-          <div className="mx-auto mt-0 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 pt-10 sm:pt-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {posts.map((post) => (
-              <SortableItem key={post._id} post={post} />
+                  }`}
+              >
+                {cat}
+              </button>
             ))}
           </div>
-        </SortableContext>
-      </DndContext>
-    </div>
+        </div>
+
+        {/* DnD Kit Context */}
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <SortableContext items={posts.map((p) => p._id)} strategy={rectSortingStrategy}>
+            <div className="mx-auto mt-0 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 pt-10 sm:pt-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              {posts.map((post) => (
+                <SortableItem key={post._id} post={post} />
+              ))}
+            </div>
+          </SortableContext>
+        </DndContext>
+      </div>
+    </>
   );
 };
 
